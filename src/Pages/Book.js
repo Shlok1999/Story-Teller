@@ -1,7 +1,7 @@
 // src/Book.js
 import React, { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";
-import "./Book.css"; // For styling
+import "../Styles/Book.css"; // For styling
 
 const Book = ({ pages = [] }) => {
   const [currentPage, setCurrentPage] = useState(0);

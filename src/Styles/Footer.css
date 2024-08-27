@@ -1,0 +1,18 @@
+/* src/Footer.css */
+.footer {
+    width: 100%;
+    background-color: #f4f4f4; /* Light grey background */
+    text-align: center; /* Center the text */
+    padding: 10px 0; /* Padding for vertical spacing */
+    position: fixed; /* Fix the footer at the bottom */
+    bottom: 0; /* Align to the bottom */
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow at the top */
+    z-index: 1000; /* Make sure it appears on top */
+  }
+  
+  .footer p {
+    margin: 0;
+    color: #333; /* Dark grey text color */
+    font-size: 14px; /* Font size */
+  }
+  

@@ -1,16 +1,21 @@
 import Navigation from './Components/Constants/Navigation';
-import logo from './logo.svg';
 import './Styles/Book.css'
-import Book from './Styles/Book.css';
 import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Footer from './Components/Constants/Footer';
+import Homepage from './Pages/Homepage';
 
 function App() {
-  const pages = [
-    
-  ];
+
   return (
     <div className="App">
-    <Navigation/>
+      <Router>
+        <Navigation />
+        <Routes>
+          <Route exact path='/' element={<Homepage/>} />
+        </Routes>
+        <Footer/>
+      </Router>
     </div>
   );
 }
