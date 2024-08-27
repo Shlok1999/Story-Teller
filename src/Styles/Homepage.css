@@ -1,0 +1,78 @@
+/* src/Header.css */
+.header {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+  }
+  
+  .menu-button {
+    position: absolute;
+    left: 20px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    color: black;
+    cursor: pointer;
+    outline: none;
+    z-index: 1001;
+  }
+  
+  .header-title {
+    font-size: 24px;
+    margin: 0;
+  }
+  
+  /* src/Sidebar.css */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: -250px; /* Hidden by default */
+    z-index: 1500; /* Higher z-index for visibility over other content */
+    transition: left 0.3s ease;
+    overflow-y: auto;
+    padding-top: 60px; /* Space for header */
+  }
+  
+  .sidebar.open {
+    left: 0;
+  }
+  
+  .sidebar-nav {
+    padding: 20px;
+  }
+  
+  .sidebar-nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .sidebar-nav li {
+    margin: 20px 0;
+  }
+  
+  .sidebar-nav a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    display: block;
+    padding: 10px;
+    transition: background-color 0.3s, color 0.3s;
+  }
+  
+  .sidebar-nav a:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Light translucent grey */
+    color: #007bff; /* Change text color on hover */
+  }
+  

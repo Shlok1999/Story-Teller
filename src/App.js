@@ -1,6 +1,7 @@
+import Navigation from './Components/Constants/Navigation';
 import logo from './logo.svg';
-import './App.css';
-import Book from './Book';
+import './Styles/Book.css'
+import Book from './Styles/Book.css';
 
 function App() {
   const pages = [
@@ -8,7 +9,7 @@ function App() {
   ];
   return (
     <div className="App">
-      <Book pages={pages}/>
+    <Navigation/>
     </div>
   );
 }
