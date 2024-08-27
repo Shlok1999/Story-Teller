@@ -1,6 +1,23 @@
-import React, {useState} from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import '../../Styles/Homepage.css'
 function Navigation() {
+    const sidebarRef = useRef(null);
+
+    const handleClickOutside = (event) => {
+        if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+            setSidebarOpen(false);
+        }
+    };
+    useEffect(() => {
+        // Attach the event listener to the document
+        document.addEventListener("mousedown", handleClickOutside);
+
+        // Cleanup the event listener on component unmount
+        return () => {
+            document.removeEventListener("mousedown", handleClickOutside);
+        };
+    }, []);
+
     const [isSidebarOpen, setSidebarOpen] = useState(false);
 
     const handleMenuClick = () => {
@@ -8,9 +25,12 @@ function Navigation() {
     };
     return (
         <>
-            <Header onMenuClick={handleMenuClick} />
-            <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
-            <div className="content">
+            <Header isOpen={isSidebarOpen} onMenuClick={handleMenuClick} />
+            <Sidebar
+                isOpen={isSidebarOpen}
+                onClose={() => setSidebarOpen(false)}
+                sidebarRef={sidebarRef}
+            />            <div className="content">
                 {/* Main content goes here */}
                 <p>Main content area. Click the menu to toggle the sidebar.</p>
             </div>
@@ -18,20 +38,22 @@ function Navigation() {
     )
 }
 
-const Header = ({isOpen, onMenuClick }) => {
+
+
+const Header = ({ isOpen, onMenuClick }) => {
     return (
         <header className="header">
             <button className="menu-button" onClick={onMenuClick}>
-        {isOpen ? "✖" : "☰"}
-      </button>
+                {isOpen ? "✖" : "☰"}
+            </button>
             <h1 className="header-title">Story Teller</h1>
         </header>
     );
 };
 
-const Sidebar = ({ isOpen, onClose }) => {
+const Sidebar = ({ isOpen, onClose, sidebarRef }) => {
     return (
-        <aside className={`sidebar ${isOpen ? "open" : ""}`}>
+        <aside ref={sidebarRef} className={`sidebar ${isOpen ? "open" : ""}`}>
             <nav className="sidebar-nav">
                 <ul>
                     <li>
