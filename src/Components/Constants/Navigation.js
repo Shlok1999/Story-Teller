@@ -30,10 +30,8 @@ function Navigation() {
                 isOpen={isSidebarOpen}
                 onClose={() => setSidebarOpen(false)}
                 sidebarRef={sidebarRef}
-            />            <div className="content">
-                {/* Main content goes here */}
-                <p>Main content area. Click the menu to toggle the sidebar.</p>
-            </div>
+            />
+            
         </>
     )
 }
@@ -57,16 +55,24 @@ const Sidebar = ({ isOpen, onClose, sidebarRef }) => {
             <nav className="sidebar-nav">
                 <ul>
                     <li>
-                        <a href="#home">Home</a>
+                        <a href="/login">Login</a>
                     </li>
                     <li>
-                        <a href="#about">About</a>
+                        <a href="/register">Register</a>
                     </li>
                     <li>
-                        <a href="#services">Services</a>
+                        <a href="/bookstore">Book Store</a>
                     </li>
                     <li>
-                        <a href="#contact">Contact</a>
+                        <a href="/library">Library</a>
+                    </li>
+                    <li>
+                        <a href="/blogs">Blogs</a>
+                    </li>
+                    <li>
+                        <button style={{backgroundColor: 'orange'}}>
+                            <a href="/author">Create</a>
+                        </button>
                     </li>
                 </ul>
             </nav>

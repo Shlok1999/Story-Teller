@@ -1,0 +1,87 @@
+/* src/Register.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0; /* Light background for entire page */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh; /* Full viewport height for centering */
+  }
+  
+  .register-container {
+    width: 100%;
+    max-width: 1000px;
+    padding: 30px;
+    background-color: #ffffff; /* White background for the form */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow around the form */
+    border-radius: 8px; /* Rounded corners */
+    text-align: center; /* Center the heading and text */
+  }
+  
+  .register-heading {
+    margin-bottom: 30px;
+    color: black; /* Black color for the heading */
+    font-size: 28px; /* Larger font size for the heading */
+  }
+  
+  .register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between input fields */
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px; /* Rounded corners for input fields */
+    outline: none;
+    transition: border-color 0.3s; /* Smooth transition for border color */
+  }
+  
+  .form-input:focus {
+    border-color: orange; /* Orange color on focus */
+  }
+  
+  .submit-button {
+    width: 100%;
+    padding: 12px;
+    background-color: orange; /* Orange background for button */
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    margin-top: 10px;
+  }
+  
+  .submit-button:hover {
+    background-color: darkorange; /* Darker orange on hover */
+  }
+  
+  .login-link {
+    margin-top: 20px;
+    color: black; /* Black color for the login text */
+  }
+  
+  .login-link a {
+    color: orange; /* Orange color for the login link */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s; /* Smooth transition for link color */
+  }
+  
+  .login-link a:hover {
+    color: darkorange; /* Darker orange on hover */
+  }
+  
