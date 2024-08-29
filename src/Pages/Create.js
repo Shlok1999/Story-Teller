@@ -29,6 +29,30 @@ function Create() {
     setStep(1); // Reset step to initial
   };
 
+  // Handle text formatting
+  const formatText = (command, value = null) => {
+    document.execCommand(command, false, value);
+  };
+
+//Image upload
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0]; // Get the selected file
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      const img = document.createElement('img');
+      img.src = e.target.result;
+      img.style.maxWidth = '100%'; // Optional: Set max width for the image
+
+      const editor = document.querySelector('.editable-textarea');
+      editor.appendChild(img); // Insert image into the editor
+    };
+
+    if (file) {
+      reader.readAsDataURL(file); // Convert image file to base64 string
+    }
+  };
+
   return (
     <div className='create-section'>
       {/* Modal Section */}
@@ -88,12 +112,45 @@ function Create() {
             {title}
           </h2>
 
+          {/* Text Editor Toolbar */}
+          <div className="editor-toolbar">
+            <button onClick={() => formatText('bold')} className="toolbar-button">Bold</button>
+            <button onClick={() => formatText('italic')} className="toolbar-button">Italic</button>
+            <button onClick={() => formatText('underline')} className="toolbar-button">Underline</button>
+            <button onClick={() => formatText('justifyLeft')} className="toolbar-button">Align Left</button>
+            <button onClick={() => formatText('justifyCenter')} className="toolbar-button">Center</button>
+            <button onClick={() => formatText('justifyRight')} className="toolbar-button">Align Right</button>
+            <button onClick={() => formatText('insertOrderedList')} className="toolbar-button">Ordered List</button>
+            <button onClick={() => formatText('insertUnorderedList')} className="toolbar-button">Unordered List</button>
+            <select onChange={(e) => formatText('fontName', e.target.value)} className="toolbar-select">
+              <option value="Arial">Arial</option>
+              <option value="Courier New">Courier New</option>
+              <option value="Georgia">Georgia</option>
+              <option value="Times New Roman">Times New Roman</option>
+              <option value="Verdana">Verdana</option>
+            </select>
+            <select onChange={(e) => formatText('fontSize', e.target.value)} className="toolbar-select">
+              <option value="1">Small</option>
+              <option value="3">Normal</option>
+              <option value="5">Large</option>
+              <option value="7">Huge</option>
+            </select>
+            <input
+              type="file"
+              accept="image/*"
+              onChange={handleImageUpload}
+              style={{ display: 'none' }}
+              id="upload-image"
+            />
+            <label htmlFor="upload-image" className="toolbar-button">Upload Image</label>
+          </div>
+
           {/* Editable Textarea for Blog Content */}
-          <textarea
+          <div
+            contentEditable={true}
             className="editable-textarea"
             placeholder="Start writing your blog here..."
-            rows="10"
-          ></textarea>
+          ></div>
 
           {/* Buttons */}
           <div className="button-group">
